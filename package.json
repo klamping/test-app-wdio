@@ -1,0 +1,23 @@
+{
+  "name": "test-app-wdio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@applitools/eyes.webdriverio": "^1.0.1",
+    "chromedriver": "^2.35.0",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "webdriverio": "^4.11.0"
+  },
+  "devDependencies": {
+    "wdio-chromedriver-service": "^0.1.2",
+    "wdio-mocha-framework": "^0.5.12",
+    "wdio-spec-reporter": "^0.1.3"
+  }
+}
