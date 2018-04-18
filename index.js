@@ -5,19 +5,14 @@ async function main() {
     const browserOptions = {
         remoteHost: "http://localhost:4444",
         desiredCapabilities: {
-            browserName: 'chrome',
-            chromeOptions: {
-                args: [
-                    'disable-infobars',
-                ]
-            }
+            browserName: 'safari',
         }
     };
     const driver = webdriverio.remote(browserOptions);
     let browser = driver.init();
 
     // Initialize the eyes SDK and set your private API key.
-    const {Eyes, Target} = require('@applitools/eyes.webdriverio');
+    const {Eyes} = require('@applitools/eyes.webdriverio');
     let eyes = new Eyes();
     eyes.setApiKey(process.env.APPLITOOLS_KEY);
 
@@ -30,13 +25,13 @@ async function main() {
         await browser.url('https://applitools.com/helloworld');
 
         // Visual checkpoint #1.
-        await eyes.check('Main Page', Target.window());
+        await eyes.checkWindow('Main Page');
 
         // Click the "Click me!" button.
         await browser.click('button');
 
         // Visual checkpoint #2.
-        await eyes.check('Click!', Target.window());
+        await eyes.checkWindow('Click!');
 
         // End the test.
         await eyes.close();
