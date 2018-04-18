@@ -10,16 +10,16 @@ describe('applitools', function () {
         await eyes.open(browser, 'Hello World!', 'My first Javascript test!', {width: 800, height: 600});
 
         // Navigate the browser to the "hello world!" web-site.
-        await browser.url('./helloworld');
+        await browser.url('./helloworld?diff=2');
 
         // Visual checkpoint #1.
-        await eyes.check('Main Page', Target.window());
+        await eyes.checkWindow('Main Page');
 
         // Click the "Click me!" button.
         await browser.click('button');
 
         // Visual checkpoint #2.
-        await eyes.check('Click!', Target.window());
+        await eyes.checkWindow('Click!');
 
         // End the test.
         await eyes.close();
